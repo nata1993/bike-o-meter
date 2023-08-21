@@ -1,0 +1,16 @@
+<%- include('partials/head.ejs') %>
+
+<div class="row">
+  <br><br>
+  <form method="POST" action="/postData"><br>
+    <input required class="newDataInput" name="date" type="date" title="Date when mainenace was done"><br>
+    <input required class="newDataInput" name="odo" type="number" placeholder="Odometer" title="Odometer state when maintenance was done"><br>
+    <input required class="newDataInput" name="work" type="text" placeholder="Work done" title="The maintenance description"><br>
+    <input required class="newDataInput" name="cost" type="number" placeholder="Cost" step="0.01" title="The cost of the maintenance if any"><br>
+    <input required class="newDataInput" name="time" type="number" placeholder="Time spent" title="Time spent on the maintenance work"><br>
+    <input required class="newDataInput" name="next" type="text" placeholder="Next maintenance" title="The next planned maintenance based on odometer reading"><br>
+    <input class="newDataInput" type="submit" value="Add data" title="Add new data to the current cycling season">
+  </form>
+</div>
+
+<%- include('partials/foot.ejs') %>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="css/css.css">
+      <link rel="shortcut icon" type="image/x-icon" href="icon/icon.ico">
+      <title>Bike-O-Meter</title>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-12">
+        <br><br>
+        <img width="500px" height="250px" alt="Bike-O-Meter logo">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <br><br>
+        <form method="POST" action="/login">
+            <input class="loginout" type="text" name="username" placeholder="Username" autofocus><br>
+            <input class="loginout" type="password" name="password" placeholder="Password"><br><br>
+            <input class="loginout" type="submit" value="Log in">
+        </form>
+      </div>
+    </div>
+    <% if (correctCredentials == false) { %>
+    <div class="row">
+      <p class="col-12" id="wrongPass">Your entered credentials are incorrect. Please enter correct credentials.</p>
+    </div>
+  <% } %>
+
+  <%- include('partials/foot.ejs') %>

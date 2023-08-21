@@ -1,0 +1,20 @@
+<%- include('partials/head.ejs') %>
+
+<div class="row">
+  <br><br>
+  <h2>Select the bike</h2>
+  <% if(bikes.length > 0) { %>
+    <form method="POST" action="/selectBike"><br>
+      <select required class="newDataInput" name="bikeID">
+        <% for(var i = 0; i < bikes.length; i++) { %>
+          <option value="<%= bikes[i].id %>"><%= bikes[i].name + " " + bikes[i].model + " " + bikes[i].year  %></option>
+        <% } %>
+      </select><br><br>
+      <input class="newDataInput" type="submit" value="Select bike" title="Select the bike and show its seasons">
+    </form>
+  <% } else {%>
+    <h2>No bike to select</h2>
+  <% } %>
+</div>
+
+<%- include('partials/foot.ejs') %>

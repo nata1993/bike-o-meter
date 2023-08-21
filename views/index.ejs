@@ -1,0 +1,84 @@
+<%- include('partials/head') %>
+
+<!-- Head -->
+    <div class="row">
+      <div class="col-2">
+        <h1>Season: 2001</h1> <!-- add here marker for bike season -->
+        <hr>
+      </div>
+      <div class="col-8">
+        <h4>Bike: <%= bikeData.bike_make %> <%= bikeData.bike_model %>, Release date: <%= bikeData.bike_year %></h4>
+        <h4>Current mileage: <%= bikeData.bike_odo %>km</h4>
+      </div>
+      <div class="col-2">
+
+      </div>
+      <div class="col-12">
+        <hr>
+      </div>
+    </div>
+
+    <!-- Left buttons -->
+    <div class="row">
+      <aside id="leftPanel" class="sticky col-1">
+        <form method="GET" action="/selectBike">
+          <input class="leftButton" type="submit" value="Select bike" title="Select bike and show its seasons data">
+        </form>
+        <form method="GET" action="/selecSeason">
+          <input class="leftButton" type="submit" value="Select season" title="Select season and show its entries">
+        </form>
+        <form method="GET" action="/updateMileage">
+          <input class="leftButton" type="submit" value="Update mileage" title="Update bike mileage based on odometer reading">
+        </form>
+        <form method="GET" action="/addDataToSeason">
+          <input class="leftButton" type="submit" value="Add new data" title="Add new data to the season">
+        </form>
+        <form method="GET" action="/newSeason">
+          <input class="leftButton" type="submit" value="Start new season" title="Start new season after previous season ended">
+        </form>
+        <form method="GET" action="/newBike">
+          <input class="leftButton" type="submit" value="Add new bike" title="Add new bike and start its season">
+        </form>
+      </aside>
+
+<!-- table -->
+      <main class="col-10">
+        <table>
+          <thead>
+            <th>#</th>
+            <th>Date</th>
+            <th>Läbisõit (KM)</th>
+            <th>Work done</th>
+            <th>Cost (€)</th>
+            <th>Time spent (min)</th>
+            <th>Next work (KM)</th>
+          </thead>
+          <% if (tableData != null) { %>
+            <tbody>
+              <% for(var i = 0; i < tableData.length; i++) { %>
+                <tr>
+                  <td><%= i+1 %></td>
+                  <td><%= tableData[i].date %></td>
+                  <td><%= tableData[i].odo %></td>
+                  <td><%= tableData[i].work %></td>
+                  <td><%= tableData[i].cost %></td>
+                  <td><%= tableData[i].time %></td>
+                  <td><%= tableData[i].next %></td>
+                </tr>
+              <% } %> 
+            </tbody>
+          <% } else { %>
+            <tr>
+              <td colspan="7">Error on getting data from database...</td>
+            </tr>
+          <% } %>
+        </table>
+      </main>
+
+<!-- right essential data -->
+      <aside id="rightPanel" class="col-1">
+        essential data
+      </aside>
+    </div>
+
+<%- include('partials/foot.ejs') %>

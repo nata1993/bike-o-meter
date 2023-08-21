@@ -1,0 +1,14 @@
+<%- include('partials/head.ejs') %>
+
+<div class="row">
+  <br><br>
+  <h2>Add new bike</h2>
+  <form method="POST" action="/newBike"><br>
+    <input required class="newDataInput" name="bikeMake" type="text" placeholder="Bike make" title='Bike make like "Trek".'><br>
+    <input required class="newDataInput" name="bkeModel" type="text" placeholder="Bike model" title='Bike model like for the Trek bike it would be "4300".'><br>
+    <input required class="newDataInput" name="bikeYear" type="number" placeholder="Manufacturing year" title="Bike's manufacturing year."><br>
+    <input class="newDataInput" type="submit" value="Add new bike" title="Add new bike and start its seasons.">
+  </form>
+</div>
+
+<%- include('partials/foot.ejs') %>
