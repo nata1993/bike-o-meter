@@ -28,7 +28,7 @@ app.post('/newBike', (req, res) => {
     const bikeYear =  req.body.bikeYear;
     let newBike = null;
 
-    let SQLstring = `INSERT INTO bike (bike_make, bike_model, bike_year, bike_odo) VALUES ('${bikeMake}', '${bkeModel}', '${bikeYear}', '0')`;
+    let SQLstring = `INSERT INTO bike (bike_make, bike_model, bike_year) VALUES ('${bikeMake}', '${bkeModel}', '${bikeYear}')`;
 
     res.render('index', {
         bikeData: newBike,
@@ -38,7 +38,6 @@ app.post('/newBike', (req, res) => {
 
 // selecting the bike
 app.get('/selectBike', (req, res) => {
-    
     let SQLstring = "SELECT * FROM bike";
 
     res.render('selectBike', {
@@ -118,12 +117,12 @@ app.post('/login', (req, res) => {
             tableData: []
         });      
     } else {
-        res.render('login', {correctCredentials: false});
+        res.redirect('/');
     }  
 });
 app.post('/logout', (req, res) => {
-    res.render('login', {correctCredentials: true});
-})
+    res.redirect('/');
+});
 
 // redirect to homepage
 app.post('/homepage', (req, res) => {
